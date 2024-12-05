@@ -98,36 +98,40 @@ def game():
     limpa_tela()
     print("\nBem vindo(a) ao jogo da forca!")
 
-   # Categorias (minha adição ao código)
-    print("""\nOpções:
-    1 - Animais
-    2 - Comidas
-    3 - Países
-    4 - Atividades""")
-
-    categoria = input("\nSelecione a categoria(número):")
-
-
+    # Categorias (minha adição ao código)
     animais = ['peixe', 'macaco', 'elefante', 'gato', 'cachorro']
     comidas = ['chocolate', 'morango', 'pizza', 'sorvete', 'espaguete']
     paises = ['brasil', 'argentina', 'japao', 'alemanha', 'russia']
     atividades = ['leitura', 'programacao', 'cozinhar', 'passear', 'dormir']
 
-   # Escolha aleatória de palavras dentro de uma categoria
-    if categoria == '1':
-        print("Você escolheu animais! Tente acertar a palavra.")
-        palavra = random.choice(animais) 
-    elif categoria == '2':
-        print("Você escolheu comidas! Tente acertar a palavra.")
-        palavra = random.choice(comidas)
-    elif categoria == '3':
-        print("Você escolheu países! Tente acertar a palavra.")
-        palavra = random.choice(paises)
-    elif categoria == '4':
-        print("Você escolheu atividades! Tente acertar a palavra.")
-        palavra = random.choice(atividades)
-    else: 
-        print("Categoria inválida!")
+    # Laço para testar categoria válida
+    while True:
+        print("""\nOpções:
+        1 - Animais
+        2 - Comidas
+        3 - Países
+        4 - Atividades""")
+
+        categoria = int(input("\nSelecione a categoria(número):"))
+
+        # Escolha aleatória de palavras dentro de uma categoria
+        if categoria == 1:
+            print("Você escolheu animais! Tente acertar a palavra.")
+            palavra = random.choice(animais)
+        elif categoria == 2:
+            print("Você escolheu comidas! Tente acertar a palavra.")
+            palavra = random.choice(comidas)
+        elif categoria == 3:
+            print("Você escolheu países! Tente acertar a palavra.")
+            palavra = random.choice(paises)
+        elif categoria == 4:
+            print("Você escolheu atividades! Tente acertar a palavra.")
+            palavra = random.choice(atividades)
+        else:
+            print("Categoria inválida!")
+
+        if categoria >= 1 and categoria <= 4:
+            break
 	
 	# List comprehension
     letras_descobertas = ['_' for letra in palavra]
