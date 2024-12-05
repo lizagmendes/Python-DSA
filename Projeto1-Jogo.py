@@ -144,7 +144,7 @@ def game():
 
 	# Loop enquanto número de chances for maior que zero
     while chances > 0:
-
+        limpa_tela()
         print(display_hangman(chances))
         print(" ".join(letras_descobertas))
         print("\nChances restantes:", chances)
